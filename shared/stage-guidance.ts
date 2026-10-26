@@ -22,6 +22,6 @@ export const STAGE_GUIDES:Record<Language,Record<StageMission,Record<Stage,Guide
 };
 export function parseStageInput(value:unknown):StageInput{
  if(!value||typeof value!=='object'||Array.isArray(value))throw new Error('invalid_schema');const v=value as Record<string,unknown>;
- if(Object.keys(v).sort().join(',')!=='answer,language,mission,stage'||!['bm','en'].includes(String(v.language))||!STAGE_MISSIONS.includes(v.mission as StageMission)||!STAGES.includes(v.stage as Stage)||typeof v.answer!=='string'||v.answer.trim().length<1||v.answer.trim().length>1200||/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/u.test(v.answer))throw new Error('invalid_schema');
+ if(Object.keys(v).sort().join(',')!=='answer,language,mission,stage'||!['bm','en'].includes(String(v.language))||!STAGE_MISSIONS.includes(v.mission as StageMission)||!STAGES.includes(v.stage as Stage)||typeof v.answer!=='string'||v.answer.trim().length<1||v.answer.trim().length>2200||/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/u.test(v.answer))throw new Error('invalid_schema');
  return {language:v.language as Language,mission:v.mission as StageMission,stage:v.stage as Stage,answer:v.answer.trim()};
 }
