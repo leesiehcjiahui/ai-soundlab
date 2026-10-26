@@ -143,3 +143,31 @@
 .wb-shell .echo-workbench .surface-options{margin:15px 0!important}.wb-shell .echo-workbench .material-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;max-width:500px}.wb-shell .echo-distance{font-size:16px!important;font-weight:800!important;margin:16px 0 3px!important}.wb-shell .echo-recorder{background:#f1f8fa;padding:14px 16px;border-radius:6px;margin:17px 0}.wb-shell .echo-recorder>strong{font-size:16px}.wb-shell .echo-recorder p{font-size:14px;margin:5px 0 10px}.wb-shell .echo-clip{display:flex;align-items:center;gap:15px;flex-wrap:wrap}.wb-shell .echo-clip audio{max-width:100%}.wb-shell .vibration-compare{margin:12px 0;padding:14px;background:#eef9fb;border-radius:6px}.wb-shell .vibration-compare>p{font-size:14px;margin:9px 0}.wb-shell .signal-bars{display:grid;gap:10px;margin:12px 0}.wb-shell .signal-bars span{font-size:13px;font-weight:800}.wb-shell .signal-bar{height:13px;background:#d1e2e9;border-radius:10px;overflow:hidden}.wb-shell .signal-bar i{display:block;height:100%;background:#008e98}.wb-shell .comparison-note{font-weight:800}
 .wb-shell .assessment-view{max-width:1040px}.wb-shell .assessment-questions{display:grid;gap:18px;margin:23px 0}.wb-shell .assessment-question{border:1px solid #dce8ee;border-radius:8px;padding:19px 22px;background:white}.wb-shell .assessment-question-title{display:flex;align-items:center;gap:11px;margin-bottom:11px}.wb-shell .assessment-question-title>span{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#daf4f2;color:#006e76;font-weight:850}.wb-shell .assessment-question-title h3{flex:1;font-size:23px}.wb-shell .assessment-question-title>strong{color:#007c85}.wb-shell .assessment-question label{font-size:17px;line-height:1.5;margin:0 0 9px}.wb-shell .assessment-question textarea{min-height:115px;margin:0}.wb-shell .assessment-feedback{margin-top:14px;background:#edf9fb;border-radius:5px;padding:11px 14px}.wb-shell .assessment-feedback p{margin:5px 0 9px}.wb-shell .assessment-submit{padding:20px;background:#edf8fc;border-radius:7px}.wb-shell .assessment-submit .check{margin:12px 0!important}.wb-shell .assessment-submit .button{min-width:220px}.wb-shell .assessment-report{border:1px solid #cce7e5;background:#eef9f7;border-radius:9px;padding:22px;margin:23px 0}.wb-shell .report-total{display:flex;align-items:center;gap:15px;color:#006f78}.wb-shell .report-total strong{display:block;font-family:'Baloo 2',sans-serif;font-size:40px;line-height:1}.wb-shell .report-total span{font-size:17px;font-weight:800}.wb-shell .report-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:17px 0}.wb-shell .report-columns>div{padding:16px;background:white;border-radius:6px}.wb-shell .report-columns h3{font-size:22px}.wb-shell .report-columns ul{margin:8px 0;padding-left:21px}.wb-shell .assessment-revise{font-size:14px;color:#4c6578}
 @media(max-width:650px){.wb-shell .report-columns{grid-template-columns:1fr}.wb-shell .assessment-question{padding:16px}.wb-shell .travel-clock{display:block}.wb-shell .assessment-submit .button{width:100%}}
+
+/* Explanations that teach, and a purpose for listening evidence. */
+.wb-shell .observation-card{align-self:start;position:sticky;top:24px}.wb-shell .observation-card .question-field{flex:initial}.wb-shell .observation-card textarea{flex:initial}
+.wb-shell .guidance-feedback p{margin:0 0 12px;font-size:17px;line-height:1.7;white-space:pre-wrap}
+.wb-shell .guidance-feedback small{display:block;color:#4c6578;font-size:13px}
+.wb-shell .learning-summary{margin-top:28px;padding:27px 30px;border:2px solid #008e98;border-left-width:8px;border-radius:10px;background:#effaf7;box-shadow:0 4px 16px #006e7810}
+.wb-shell .learning-summary-label{display:flex;align-items:center;gap:9px;color:#006b72;font-size:16px;font-weight:850}
+.wb-shell .learning-summary h3{font-family:'Baloo 2',sans-serif;font-size:29px;line-height:1.25;margin:10px 0 14px;color:#103850}
+.wb-shell .learning-summary>p{font-size:18px;line-height:1.7;margin:13px 0}
+.wb-shell .learning-takeaway{background:#fff;border-radius:6px;padding:16px 19px;margin:18px 0;color:#174851}
+.wb-shell .learning-takeaway strong{font-size:16px;color:#006b72}
+.wb-shell .learning-takeaway p{font-size:18px;line-height:1.6;margin:5px 0}
+.wb-shell .detective-listening{margin-top:22px;padding:20px;background:#f0f9fb;border:1px solid #c7e2e9;border-radius:8px}
+.wb-shell .detective-purpose{display:block;font-size:15px;color:#006b72}
+.wb-shell .detective-listening h3{font-size:23px;margin:8px 0}
+.wb-shell .detective-listening ol{padding-left:23px;font-size:16px;line-height:1.65}
+.wb-shell .detective-listening li{margin:7px 0}
+.wb-shell .detective-listening fieldset{margin:18px 0;border:0;padding:0}
+.wb-shell .detective-listening legend{font-size:17px;font-weight:800;margin-bottom:8px}
+.wb-shell .detective-patterns{display:flex;gap:9px;flex-wrap:wrap}
+.wb-shell .detective-patterns label{display:flex;align-items:center;gap:7px;padding:10px 12px;border:1px solid #abcbd4;border-radius:7px;background:white;font-size:15px;cursor:pointer}
+.wb-shell .detective-patterns label:has(input:checked){border-color:#008e98;background:#dff4f1}
+.wb-shell .detective-setting{display:block;font-size:17px;font-weight:750}
+.wb-shell .detective-setting input{display:block;width:100%;margin-top:8px;min-height:45px;padding:9px 11px;border:1px solid #abcbd4;border-radius:5px;background:white;font:inherit;font-weight:400}
+.wb-shell .detective-listening>p{font-size:15px;line-height:1.6;margin:14px 0 0}
+.wb-shell .detective-evidence{padding:16px 18px;margin-bottom:22px;border-left:4px solid #008e98;background:#edf9fa;border-radius:6px}.wb-shell .detective-evidence>strong{color:#006d75}.wb-shell .detective-evidence p{font-size:16px;line-height:1.6;margin:9px 0}.wb-shell .detective-evidence small{font-size:14px;color:#426075}
+@media(max-width:650px){.wb-shell .learning-summary{padding:20px 17px}.wb-shell .learning-summary h3{font-size:25px}.wb-shell .learning-summary>p,.wb-shell .learning-takeaway p{font-size:16px}.wb-shell .detective-listening{padding:16px}}
+@media(max-width:900px){.wb-shell .observation-card{position:static}}

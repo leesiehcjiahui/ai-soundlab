@@ -100,7 +100,7 @@ export const MISSION_COPY:Record<Language,Record<MissionId,MissionQuestions>> = 
       reasonHelp:'Think about how a wall’s surface differs from curtain fabric.',
       steps:['Choose Hard wall. Run the simulation and watch the sound return.','Choose Soft curtain. Keep the same distance and run the simulation again.'],
       observe:'Which surface gives a stronger sound reflection?',
-      observeHints:['Compare the wall and the curtain in the simulation.','Keep Simulation sound checked to hear the example while the simulation runs. Start with a low volume.'],
+      observeHints:['Compare the wall and the curtain in the simulation.','Run the simulation to hear the example. Start with a low volume.'],
       observeStarter:'The reflection from ____ is stronger than the reflection from ____.',
       explain:'Why are the sound reflections different in strength?',
       explainHints:['Think about whether each surface reflects or absorbs some sound.','Give one example of a place where you could hear an echo.'],
