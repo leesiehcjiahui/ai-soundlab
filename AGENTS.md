@@ -1,5 +1,9 @@
 # Instructions for future Codex work
 
+## Active repository · 26 October 2026
+
+The owner requested migration to leesiehcjiahui/ai-soundlab. This is now the canonical repository and local origin. Pages is https://leesiehcjiahui.github.io/ai-soundlab/ . The original lauhoekeat repository is the legacy remote and retains historical PR/issue links. The Cloudflare Worker remains on the existing account; both Pages origins are explicitly allowed during migration. See docs/2026-10-26/REPOSITORY-MIGRATION.md for observed checks.
+
 ## Active product scope · 26 October 2026
 
 The owner's latest request supersedes the older teacher/class-code/Evidence Book flows: public session-only app, AI guidance for Predict/Try/Explain in each mission, and a five-question 10-point practice assessment. No teacher mode, class code, Save or persistence. Source of truth: `docs/2026-10-26/PUBLIC-SESSION-RELEASE.md`, `SETUP.md` and current code. Earlier plans and approval rows below are historical. The release may use the previously authorized GitHub Pages and Cloudflare deployment workflow. Do not reuse the previous Science-teacher approval for the revised scoring rubrics.
