@@ -1,5 +1,9 @@
 # Approval ledger
 
+## 27 October 2026 · explanations and Sound Detective
+
+Owner explicitly requested removal of the school-grade statement and AI submission checkbox; feedback that explains why each answer is correct or incorrect without challenge idea scores, detached Science answer example or Science idea; a visible teaching section below each Explain activity; Assessment without mission completion; and a useful Sound Detective recording flow. These changes and the established repository/Pages/Cloudflare release workflow are authorized. Existing configured server-side OpenAI key use remains authorized by the earlier instructions. No audio upload or automatic environmental sound classification is authorized or added.
+
 ## 26 October 2026 · repository migration
 
 Owner explicitly requested moving the project to the newly created public repository leesiehcjiahui/ai-soundlab. This authorizes copying the existing project history, changing the local Git origin, configuring destination CI/Pages and updating the existing Worker Origin allowlist for the new Pages URL. Existing OpenAI secrets remain server-side in the existing Cloudflare account. Destination GitHub authentication/access must be verified before push. Historical PRs/issues remain in the original repository.
