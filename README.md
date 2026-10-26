@@ -1,6 +1,6 @@
 # AI SoundLab · Misi Detektif Bunyi
 
-[Open the app](https://lauhoekeat.github.io/ai-soundlab/) · [Setup](SETUP.md) · [Current release decision](docs/2026-10-26/PUBLIC-SESSION-RELEASE.md)
+[Open the app](https://leesiehcjiahui.github.io/ai-soundlab/) · [Setup](SETUP.md) · [Current release decision](docs/2026-10-26/PUBLIC-SESSION-RELEASE.md) · [Repository migration](docs/2026-10-26/REPOSITORY-MIGRATION.md)
 
 A BM-first, optional-English Year 4 KSSR Science 6.1 practice app. Pupils investigate vibration, sound travelling in all directions, echoes, and the effects of familiar sounds. Each mission has Predict, Try, and Explain sections with optional AI feedback. A final five-question written assessment scores two science ideas per question and gives a 10-point practice report.
 

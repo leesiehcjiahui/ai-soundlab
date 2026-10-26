@@ -1,6 +1,6 @@
 # AI SoundLab setup · public session release
 
-The published frontend is [GitHub Pages](https://lauhoekeat.github.io/ai-soundlab/). The secured API is `https://ai-soundlab-proxy.ai-soundlab.workers.dev`. Node 22+ and Cloudflare Wrangler are required for development or deployment. The owner has already configured the local key and authenticated Wrangler.
+The frontend's new GitHub Pages address is [leesiehcjiahui.github.io/ai-soundlab](https://leesiehcjiahui.github.io/ai-soundlab/), with source in [leesiehcjiahui/ai-soundlab](https://github.com/leesiehcjiahui/ai-soundlab). See the [migration record](docs/2026-10-26/REPOSITORY-MIGRATION.md) for cutover status. The secured API is `https://ai-soundlab-proxy.ai-soundlab.workers.dev`. Node 22+ and Cloudflare Wrangler are required for development or deployment. The existing server-side key remains in Cloudflare.
 
 ## Local checks
 

@@ -1,7 +1,7 @@
 {
   "name": "ai-soundlab-proxy", "main": "src/index.ts", "compatibility_date": "2026-10-25", "workers_dev": true,
   "observability": { "enabled": false },
-  "vars": { "AI_ENABLED": "true", "ALLOWED_ORIGINS": "https://lauhoekeat.github.io,http://127.0.0.1:5173", "PUBLIC_PER_MINUTE": "12", "IP_PER_MINUTE": "20", "DAILY_LIMIT": "200", "MONTHLY_LIMIT": "2000" },
+  "vars": { "AI_ENABLED": "true", "ALLOWED_ORIGINS": "https://leesiehcjiahui.github.io,https://lauhoekeat.github.io,http://127.0.0.1:5173", "PUBLIC_PER_MINUTE": "12", "IP_PER_MINUTE": "20", "DAILY_LIMIT": "200", "MONTHLY_LIMIT": "2000" },
   "durable_objects": { "bindings": [{ "name": "QUOTA", "class_name": "QuotaCoordinator" }] },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["QuotaCoordinator"] }]
 }

@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-const url=process.env.POC_PROXY_URL||'https://ai-soundlab-proxy.ai-soundlab.workers.dev',origin='https://lauhoekeat.github.io',input={language:'bm',mission:'vibration',stage:'explain',answer:'Contoh ujian dewasa.'};
+const url=process.env.POC_PROXY_URL||'https://ai-soundlab-proxy.ai-soundlab.workers.dev',origin=process.env.POC_ORIGIN||'https://leesiehcjiahui.github.io',input={language:'bm',mission:'vibration',stage:'explain',answer:'Contoh ujian dewasa.'};
 async function check(name,path,expected,options){const r=await fetch(url+path,{...options,signal:AbortSignal.timeout(15000)});assert.equal(r.status,expected,name);console.log(`PASS ${name}: HTTP ${r.status}`);return r;}
 const health=await check('allowed Pages health','/api/health',200,{headers:{Origin:origin}});assert.equal((await health.json()).aiEnabled,true);
 await check('absent Origin','/api/health',403,{});await check('unlisted Origin','/api/health',403,{headers:{Origin:'https://example.invalid'}});

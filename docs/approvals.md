@@ -1,5 +1,9 @@
 # Approval ledger
 
+## 26 October 2026 · repository migration
+
+Owner explicitly requested moving the project to the newly created public repository leesiehcjiahui/ai-soundlab. This authorizes copying the existing project history, changing the local Git origin, configuring destination CI/Pages and updating the existing Worker Origin allowlist for the new Pages URL. Existing OpenAI secrets remain server-side in the existing Cloudflare account. Destination GitHub authentication/access must be verified before push. Historical PRs/issues remain in the original repository.
+
 ## 26 October 2026 · public session product change
 
 Owner requested Sound Travel listener dragging, audible in-app simulation, real-time model clock and simplified controls; Discover Vibration recording purpose and comparison; Echo audible defaults and optional own-recording echo; trial indicators above simulations. Owner then requested AI guidance in each Predict/Try/Explain section and a fixed five-question 10-point assessment, while explicitly removing Save, Evidence Book, teacher mode, class-code generation and teacher examples for public access. This authorizes the current implementation and deployment under the previously approved GitHub Pages/Cloudflare workflow. Use the existing server-side key only. New rubric approval and new physical device regression have not been reported.
