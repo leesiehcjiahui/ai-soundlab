@@ -34,3 +34,9 @@ The schema approach follows [OpenAI Structured Outputs](https://developers.opena
 - Playwright, used because the Browser plugin is not available, passes Assessment from a fresh session, removal of the checkbox/score/reference blocks, all four lesson sections, supplied Pencil-Tap import/playback and context transfer, and 390px mobile width. No page or console errors were observed.
 
 These are synthetic adult fixtures and automated viewport checks. They do not claim a new physical-phone or pupil-pilot pass.
+
+## Published verification
+
+[PR #2](https://github.com/leesiehcjiahui/ai-soundlab/pull/2) merged as 65bf418. [Pages workflow 40360046794](https://github.com/leesiehcjiahui/ai-soundlab/actions/runs/40360046794) succeeded, publishing version 0.5.0 to https://leesiehcjiahui.github.io/ai-soundlab/ . Worker version b473a198-f41d-4b2c-8cc4-50a328532d91 deployed the explanatory feedback prompts. Hosted boundary tests passed after deployment.
+
+The published four-mission and assessment browser flow passed with mocked AI results, including immediate assessment access, removed UI blocks, all four science lessons, 390px layout, Pencil-Tap.m4a import/playback and listening context transfer. A separate browser session used real hosted AI for the screenshot's BM hand answer in the English UI: the feedback explained that the hand starts the movement while the ruler's vibration produces sound. The same browser then opened Assessment without completing any mission, submitted the synthetic mixed answers and received 6/10 with specific English explanations of each answer. Both runs had zero page/console errors. Desktop and mobile screenshots were visually inspected; physical-device testing remains separate.
