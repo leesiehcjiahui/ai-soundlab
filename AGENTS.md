@@ -1,5 +1,9 @@
 # Instructions for future Codex work
 
+## Active learning feedback · 27 October 2026
+
+Follow docs/2026-10-27/LEARNING-FEEDBACK-0.5.0.md for current behavior. Owner removed explicit consent checkboxes, school-grade statements, challenge idea scores and separate answer-example/Science idea blocks. Check buttons send text with a short disclosure. Each Explain page has a visible authored lesson; AI feedback is generated specifically from the pupil's answer. Assessment opens immediately and retains the overall 10-point report. Sound Detective uses replay, pupil-described pattern and listening context; it does not send or classify audio. This overrides older gating/checkbox/reference-answer descriptions.
+
 ## Active repository · 26 October 2026
 
 The owner requested migration to leesiehcjiahui/ai-soundlab. This is now the canonical repository and local origin. Pages is https://leesiehcjiahui.github.io/ai-soundlab/ . The original lauhoekeat repository is the legacy remote and retains historical PR/issue links. The Cloudflare Worker remains on the existing account; both Pages origins are explicitly allowed during migration. See docs/2026-10-26/REPOSITORY-MIGRATION.md for observed checks.

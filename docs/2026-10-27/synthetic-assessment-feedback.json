@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-27",
+  "syntheticAdultFixturesOnly": true,
+  "results": [
+    {
+      "id": "mixed-assessment",
+      "input": {
+        "language": "en",
+        "answers": {
+          "q1": "My hand makes the ruler sound.",
+          "q2": "Sound travels in all directions. Equally distant listeners hear it together and farther listeners hear it later.",
+          "q3": "A curtain always reflects louder than a hard wall because the curtain makes sound move faster.",
+          "q4": "A horn warns people of danger. Repeated loud honking disturbs their concentration.",
+          "q5": "Close classroom windows to block some road sound from entering."
+        }
+      },
+      "result": {
+        "source": "openai",
+        "rubricVersion": "sound-6.1-assessment-v1",
+        "total": 6,
+        "marks": [
+          {
+            "id": "q1",
+            "score": 0,
+            "met": [
+              false,
+              false
+            ],
+            "feedback": "You said your hand makes the ruler sound. Actually, the sound comes from the ruler vibrating after you pluck it. When the ruler stops vibrating, the sound stops as well. Your hand starts the movement, but the ruler's vibration causes the sound.",
+            "correctAnswer": "The ruler vibrates when plucked, producing sound. When the ruler stops vibrating, the sound stops too."
+          },
+          {
+            "id": "q2",
+            "score": 2,
+            "met": [
+              true,
+              true
+            ],
+            "feedback": "You explained that sound travels in all directions and that listeners at equal distances hear it together, while a farther listener hears it later. This is correct because sound spreads through the air equally in all directions and takes longer to reach someone who is farther away.",
+            "correctAnswer": "Sound travels in all directions through air, so all four can hear the bell. In the same-air model, it reaches equally distant listeners together and the farther person later."
+          },
+          {
+            "id": "q3",
+            "score": 0,
+            "met": [
+              false,
+              false
+            ],
+            "feedback": "You said the curtain reflects louder than a hard wall and makes sound move faster, but this is not correct. A hard wall usually reflects more sound, while a soft curtain absorbs some sound, making its echo weaker. The curtain does not change the speed of sound.",
+            "correctAnswer": "Some sound reflects from both surfaces. A hard wall usually reflects more sound, while a soft curtain absorbs some, making its reflection weaker. A reflection heard separately is an echo."
+          },
+          {
+            "id": "q4",
+            "score": 2,
+            "met": [
+              true,
+              true
+            ],
+            "feedback": "You correctly said a horn warns people of danger and that repeated loud honking can disturb concentration. This shows you understand that a horn can be both helpful for safety and harmful when it disturbs others.",
+            "correctAnswer": "A horn can warn people of danger. Loud or repeated unnecessary honking can disturb other people’s concentration and peace."
+          },
+          {
+            "id": "q5",
+            "score": 2,
+            "met": [
+              true,
+              true
+            ],
+            "feedback": "You suggested closing classroom windows to block road noise, which is a good safe action. You also explained how this helps by blocking some sound from entering, reducing disturbance inside the classroom.",
+            "correctAnswer": "For example, close the windows during busy traffic. Closed windows block some road sound from entering the classroom. Thick curtains can also absorb some sound."
+          }
+        ]
+      },
+      "latencyMs": 3891
+    }
+  ]
+}

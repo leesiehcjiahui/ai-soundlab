@@ -16,7 +16,8 @@ export function Prediction({mission,language,work,update,issues=[],compact=false
 export function InvestigationSteps({mission,language}:{mission:MissionId;language:Language}) {const t=text(language);return <div className="investigation-steps"><h4>{t.stepsTitle}</h4><ol>{MISSION_COPY[language][mission].steps.map(step=><li key={step}>{step}</li>)}</ol></div>;}
 export function ObservationField({mission,language,work,update,issues=[]}:FieldsProps) {
  const t=text(language),q=MISSION_COPY[language][mission];
- return <QuestionField language={language} field="observation" intro={t.observeShort} label={mission==='echo'?t.observeHeading:q.observe} hints={q.observeHints} starter={q.observeStarter} value={work.observation} invalid={issues.includes('observation')} error={t.writeObservation} rows={7} onChange={value=>update({observation:value})}/>;
+ const intro=mission==='detective'?(language==='bm'?'Dengar semula bunyi pilihan kamu. Catat cirinya dan situasi orang yang mendengarnya.':'Replay your chosen sound. Describe its pattern and the situation of the people hearing it.'):mission==='vibration'?(language==='bm'?'Lihat pembaris dan dengar bunyinya. Catat apa yang berubah apabila pergerakannya dihentikan.':'Watch the ruler and listen. Write what changes when its movement stops.'):t.observeShort;
+ return <QuestionField language={language} field="observation" intro={intro} label={mission==='echo'?t.observeHeading:q.observe} hints={q.observeHints} starter={q.observeStarter} value={work.observation} invalid={issues.includes('observation')} error={t.writeObservation} rows={7} onChange={value=>update({observation:value})}/>;
 }
 export function ExplanationFields({mission,language,work,update,issues=[],compact=false}:FieldsProps) {
  const t=text(language),q=MISSION_COPY[language][mission],help=useId();
