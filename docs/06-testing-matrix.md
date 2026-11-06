@@ -1,5 +1,10 @@
 # QA matrix and release criteria
 
+## Current P1 verification · 6 November 2026
+
+The blanket NOT RUN/historical no-app statuses below describe the original plan. Current P1 baseline, 64-test results, runtime security tests, mocked browser evidence and explicit unrun physical-device/quality gates are in [P1 verification](2026-11-06/P1-VOICE-POC.md#actual-verification). P1 remains NO-GO for expansion; no real child-speech, mobile-device or audible exactness pass is claimed.
+
+
 Status of every row: NOT RUN. This document defines future tests; no application exists. Tests trace to features F01–F09 and gates G1–G5. Evidence belongs in docs/evidence/ after implementation with date, build SHA, model/content versions and environment. Never commit real pupil data or audio. Use fixtures only for repeatable UI logic; real-device tests establish actual acoustic behavior.
 
 | ID | Area / trace | Method and representative cases | Pass criteria | Owner / stage |

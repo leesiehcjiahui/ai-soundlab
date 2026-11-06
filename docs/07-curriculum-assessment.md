@@ -1,5 +1,10 @@
 # Curriculum alignment and assessment
 
+## P1 curriculum impact · 6 November 2026
+
+P1 changes only how one prediction reason is entered and how its existing feedback can be heard. No fixed science question, authored lesson, rubric, mission completion rule or assessment score has changed. Recognition is not a science grade; pupils edit/confirm text first. The existing science model stays fixed. New voice/language quality and sampled feedback review remain outstanding; older teacher approval is not reused. See [P1 report](2026-11-06/P1-VOICE-POC.md). P2 teaching scripts and P3 scientific simulations require fresh editorial/KSSR review before their gates.
+
+
 Proposed mapping to KSSR Semakan 2017, Year 4 Science, Sound 6.1. The KPM/BPK-authored English DSKP, April 2018, printed pp. 59–60 (PDF pages 71–72), was inspected through a [third-party mirror](https://asiemodel.net/wp-content/uploads/2022/08/DSKP-KSSR-Semakan-2017-Science-Year-4.pdf). Teacher must confirm the current school edition and stream before competition claims. Descriptions below are paraphrases, not official BM wording.
 
 | Code | Paraphrased focus | Planned evidence |

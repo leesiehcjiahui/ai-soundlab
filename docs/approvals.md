@@ -39,3 +39,10 @@ Hosting follow-up: owner initially chose “Finish the frontend; keep hosted AI 
 | Deployment/public sharing | NOT APPROVED | Decide after release review |
 
 Future entries must quote the actual owner approval and identify the permitted scope. Do not mark a gate passed based on this plan.
+
+
+## 6 November 2026 — current chat authorization
+
+Owner instruction: “Implement P1, P2 and P3 sequentially, with independent verification gates. Use feature branches and open PRs. Do not merge or deploy production without approval.” Also: “Then implement P1. Continue to P2 and P3 only after each preceding gate passes. Do not silently skip or weaken a gate.”
+
+Scope: this current AI SoundLab 2.0 lead-developer chat, repository leesiehcjiahui/ai-soundlab; P1 implementation, verification, feature branch and PR authorized. P2/P3 contingent on preceding gates. No production deployment/merge authorized. Local P1 result is NO-GO for expansion; no later-phase or new science-review approval is inferred.

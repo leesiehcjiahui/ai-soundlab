@@ -1,5 +1,18 @@
 # Scoped delivery backlog
 
+## Active voice milestones · 6 November 2026
+
+Current user authorization supersedes historical implementation-blocked wording below. See [P1 evidence and NO-GO decision](2026-11-06/P1-VOICE-POC.md).
+
+| Item | Status / acceptance trace |
+|---|---|
+| V1 bounded vertical POC | Implemented, off by default; AC01,03,04,06,07,09,11,12 local automated evidence only |
+| V2 live speech and audible feedback | OPEN, blocks P1 GO; AC05,06,07,09,11; real BM/EN/mixed, noise, devices, budget/terms, sampled teacher review |
+| V3 rollout to fields and assessment | BLOCKED by P1 GO; AC03–07 |
+| V4 P2 authored bilingual static audio | NOT STARTED, blocks on P1; AC08,09,11; inventory/assets/terms/editorial review |
+| V5 P3 interactive missions | NOT STARTED, blocks on P2; AC02,08,10,11; remove old recordings only after replacement regressions |
+
+
 Issue IDs I01–I16 below are stable planning identifiers; GitHub issue numbers are mapped in [issue-index.md](issue-index.md). All engineering work is blocked until explicit phase approval. Priority P0 means critical path, not permission to execute. An issue becoming open or assigned does not grant approval. Each future PR must link its issue and relevant QA IDs.
 
 ## I01 — Verify registration, rules and school constraints
