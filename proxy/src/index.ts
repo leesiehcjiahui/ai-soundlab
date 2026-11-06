@@ -1,4 +1,5 @@
 /// <reference types="@cloudflare/workers-types" />
+import {signFeedback,voiceRoute} from './voice';
 import { MAX_BODY_BYTES } from '../../shared/contract';
 import {parseAssessmentInput,type AssessmentInput} from '../../shared/assessment';
 import {parseStageInput,type StageInput} from '../../shared/stage-guidance';
@@ -7,6 +8,7 @@ import {buildStagePrompt,renderStageMarking} from './stage-guidance';
 import { reserve, type CounterState, type Limits } from './quota';
 export interface Env {
   OPENAI_API_KEY?: string; IP_HASH_SECRET?: string;
+  VOICE_ENABLED?: string;
   AI_ENABLED: string; ALLOWED_ORIGINS: string;
   PUBLIC_PER_MINUTE: string; IP_PER_MINUTE: string; DAILY_LIMIT: string; MONTHLY_LIMIT: string;
   QUOTA: DurableObjectNamespace;
@@ -50,7 +52,7 @@ export async function handle(request: Request, env: Env, upstream: typeof fetch 
   const cors = { 'Access-Control-Allow-Origin': origin, Vary: 'Origin' };
   const reply = (data: unknown, status = 200, extra = {}) => json(data, status, { ...cors, ...extra });
   const path = new URL(request.url).pathname;
-  if (!['/api/health', '/api/stage-guidance', '/api/assessment'].includes(path)) return reply({ error: 'not_found' }, 404);
+  if (!['/api/health', '/api/stage-guidance', '/api/assessment', '/api/transcribe', '/api/speech'].includes(path)) return reply({ error: 'not_found' }, 404);
   if (request.method === 'OPTIONS' && path !== '/api/health') {
     const method = request.headers.get('Access-Control-Request-Method');
     const headers = (request.headers.get('Access-Control-Request-Headers') ?? '').toLowerCase().split(',').map(s => s.trim()).filter(Boolean);
@@ -61,6 +63,7 @@ export async function handle(request: Request, env: Env, upstream: typeof fetch 
   if (request.method !== 'POST') return reply({ error: 'method_denied' }, 405);
   if (env.AI_ENABLED !== 'true') return reply({ error: 'ai_disabled' }, 503);
   if (!env.OPENAI_API_KEY || !env.IP_HASH_SECRET || env.IP_HASH_SECRET.length < 32) return reply({ error: 'server_not_configured' }, 503);
+  if (path === '/api/transcribe' || path === '/api/speech') return voiceRoute(request, env, cors, upstream);
   if (request.headers.get('Content-Type')?.split(';')[0].trim().toLowerCase() !== 'application/json') return reply({ error: 'json_required' }, 415);
   if (Number(request.headers.get('Content-Length')) > MAX_BODY_BYTES) return reply({ error: 'too_large' }, 413);
   let input:StageInput|AssessmentInput;
@@ -83,6 +86,9 @@ export async function handle(request: Request, env: Env, upstream: typeof fetch 
     const selection = data.output.filter(o => o.type === 'message').flatMap(o => o.content ?? []).filter(c => c.type === 'output_text').map(c => c.text ?? '').join('\n').trim();
     let rendered;
     try { rendered = path==='/api/assessment'?renderAssessmentMarking(selection,input as AssessmentInput):renderStageMarking(selection,input as StageInput); } catch { return reply({ error: 'ai_response_invalid' }, 502); }
+    if (env.VOICE_ENABLED === 'true' && path === '/api/stage-guidance' && (input as StageInput).mission === 'vibration' && (input as StageInput).stage === 'predict') {
+      return reply({...rendered, speechGrant: await signFeedback((rendered as import('../../shared/stage-guidance').StageResult).feedback, input.language, origin, env.IP_HASH_SECRET)});
+    }
     return reply(rendered);
   } catch { return reply({ error: abort.signal.aborted ? 'ai_timeout' : 'ai_unavailable' }, 502); }
   finally { clearTimeout(timer); }
@@ -90,15 +96,35 @@ export async function handle(request: Request, env: Env, upstream: typeof fetch 
 export default { fetch(request: Request, env: Env) { return handle(request, env); } };
 export class QuotaCoordinator implements DurableObject {
   constructor(private readonly state: DurableObjectState) {}
+  async alarm() {
+    const entries = await this.state.storage.list<number>({prefix:'used:'});
+    for (const [id,expiry] of entries) if(expiry <= Date.now()) await this.state.storage.delete(id);
+    const leases = await this.state.storage.list<{expires:number}>({prefix:'lease:'});
+    for (const [id,value] of leases) if(value.expires <= Date.now()) await this.state.storage.delete(id);
+    if(entries.size || leases.size) await this.state.storage.setAlarm(Date.now()+300_000);
+  }
   async fetch(request: Request): Promise<Response> {
     const path = new URL(request.url).pathname;
+    if (request.method === 'POST' && path === '/release') {
+      const {lease} = await request.json() as {lease:string};
+      await this.state.storage.delete(`lease:${lease}`); return json({released:true});
+    }
     if (request.method !== 'POST' || path !== '/reserve') return json({ error: 'not_found' }, 404);
     try {
-      const { limits: budget, classId, ipId } = await request.json() as { limits: Limits; classId: string; ipId: string };
+      const { limits: budget, classId, ipId, nonce, lease } = await request.json() as { limits: Limits; classId: string; ipId: string; nonce?: string; lease?: string };
       const accepted = await this.state.storage.transaction(async transaction => {
+        if (lease) {
+          const active = await transaction.list<{ipId:string;expires:number}>({prefix:'lease:'});
+          const live = [...active.values()].filter(v=>v.expires>Date.now());
+          if (live.length>=4 || live.some(v=>v.ipId===ipId)) return false;
+        }
+        if (nonce && await transaction.get(`used:${nonce}`)) return false;
         const next = reserve(await transaction.get<CounterState>('counters'), budget, classId, ipId);
         if (!next) return false;
-        await transaction.put('counters', next); return true;
+        await transaction.put('counters', next);
+        if (lease) { await transaction.put(`lease:${lease}`, {ipId,expires:Date.now()+30_000}); await transaction.setAlarm(Date.now()+300_000); }
+        if (nonce) { await transaction.put(`used:${nonce}`, Date.now()+300_000); await transaction.setAlarm(Date.now()+300_000); }
+        return true;
       });
       return json({ accepted }, accepted ? 200 : 429);
     } catch { return json({ error: 'quota_unavailable' }, 503); }

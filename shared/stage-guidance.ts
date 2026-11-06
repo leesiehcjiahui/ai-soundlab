@@ -4,7 +4,7 @@ export type Stage=typeof STAGES[number];
 export const STAGE_MISSIONS=['vibration','travel','echo','detective'] as const;
 export type StageMission=typeof STAGE_MISSIONS[number];
 export interface StageInput {language:Language;mission:StageMission;stage:Stage;answer:string;}
-export interface StageResult {source:'openai';rubricVersion:'sound-stage-v1';score:0|1|2;met:[boolean,boolean];feedback:string;correctAnswer:string;}
+export interface StageResult {speechGrant?: import('./voice').SpeechGrant;source:'openai';rubricVersion:'sound-stage-v1';score:0|1|2;met:[boolean,boolean];feedback:string;correctAnswer:string;}
 type Guide={criteria:readonly [string,string];answer:string;};
 export const STAGE_GUIDES:Record<Language,Record<StageMission,Record<Stage,Guide>>>= {
  bm:{
