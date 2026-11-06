@@ -171,3 +171,7 @@
 .wb-shell .detective-evidence{padding:16px 18px;margin-bottom:22px;border-left:4px solid #008e98;background:#edf9fa;border-radius:6px}.wb-shell .detective-evidence>strong{color:#006d75}.wb-shell .detective-evidence p{font-size:16px;line-height:1.6;margin:9px 0}.wb-shell .detective-evidence small{font-size:14px;color:#426075}
 @media(max-width:650px){.wb-shell .learning-summary{padding:20px 17px}.wb-shell .learning-summary h3{font-size:25px}.wb-shell .learning-summary>p,.wb-shell .learning-takeaway p{font-size:16px}.wb-shell .detective-listening{padding:16px}}
 @media(max-width:900px){.wb-shell .observation-card{position:static}}
+
+.voice-control { margin-block: .75rem; }
+.voice-actions { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+.voice-control [role="status"] { font-size: .9rem; }
