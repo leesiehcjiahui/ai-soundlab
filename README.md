@@ -1,5 +1,10 @@
 # AI SoundLab · Misi Detektif Bunyi
 
+## Voice POC (6 November 2026)
+
+An opt-in one-question P1 voice implementation is on a feature branch, disabled by default. Optional dictation sends audio through the Worker to OpenAI; legacy experiment recordings still remain local. P1 is **NO-GO for expansion** pending real speech/device and spoken-feedback verification. See [implementation, API contracts, limits and evidence](docs/2026-11-06/P1-VOICE-POC.md). Production remains unchanged.
+
+
 [Open the app](https://leesiehcjiahui.github.io/ai-soundlab/) · [Setup](SETUP.md) · [Current release decision](docs/2026-10-27/LEARNING-FEEDBACK-0.5.0.md) · [Repository migration](docs/2026-10-26/REPOSITORY-MIGRATION.md)
 
 A BM-first, optional-English Year 4 KSSR Science 6.1 practice app. Pupils investigate vibration, sound travelling in all directions, echoes, and the effects of familiar sounds. Each mission has Predict, Try, and Explain sections with optional AI feedback. A final five-question written assessment scores two science ideas per question and gives a 10-point practice report.

@@ -87,7 +87,9 @@ export async function handle(request: Request, env: Env, upstream: typeof fetch 
     let rendered;
     try { rendered = path==='/api/assessment'?renderAssessmentMarking(selection,input as AssessmentInput):renderStageMarking(selection,input as StageInput); } catch { return reply({ error: 'ai_response_invalid' }, 502); }
     if (env.VOICE_ENABLED === 'true' && path === '/api/stage-guidance' && (input as StageInput).mission === 'vibration' && (input as StageInput).stage === 'predict') {
-      return reply({...rendered, speechGrant: await signFeedback((rendered as import('../../shared/stage-guidance').StageResult).feedback, input.language, origin, env.IP_HASH_SECRET)});
+      try {
+        return reply({...rendered, speechGrant: await signFeedback((rendered as import('../../shared/stage-guidance').StageResult).feedback, input.language, origin, env.IP_HASH_SECRET)});
+      } catch { /* Voice must never hide validated written feedback. */ }
     }
     return reply(rendered);
   } catch { return reply({ error: abort.signal.aborted ? 'ai_timeout' : 'ai_unavailable' }, 502); }

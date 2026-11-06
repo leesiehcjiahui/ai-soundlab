@@ -1,5 +1,10 @@
 # Proposed architecture and development framework
 
+## Current voice POC addendum · 6 November 2026
+
+The historical architecture below is superseded for current runtime behavior by the public-session release and [P1 voice architecture/API contract](2026-11-06/P1-VOICE-POC.md). React/Vite and Cloudflare remain; optional voice uses bounded ephemeral WAV -> Worker transcription -> editable answer -> unchanged AI Assist -> signed exact-text speech. No rollout or deployment; NO-GO pending live gates.
+
+
 Status: proposed; not installed, implemented or benchmarked. See ADRs for tradeoffs and POC for verification.
 
 ## System boundaries
